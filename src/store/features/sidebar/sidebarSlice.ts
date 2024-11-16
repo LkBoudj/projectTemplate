@@ -1,9 +1,8 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
+import { ISidebarState } from "./interface";
 
-interface ISidebarState {
-  isOpen: boolean;
-}
+
 
 const initialState: ISidebarState = {
   isOpen: true,

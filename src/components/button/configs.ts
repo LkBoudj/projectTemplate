@@ -1,8 +1,7 @@
 import { cva, VariantProps } from "class-variance-authority";
 import { ReactNode } from "react";
-
 export const buttonVariant = cva(
-  "rounded-lg text-sm  focus:outline-none transition-all duration-300",
+  "rounded-lg inline-flex items-center   text-sm  focus:outline-none transition-all duration-300",
   {
     variants: {
       intent: {
@@ -95,7 +94,7 @@ export const buttonVariant = cva(
           "focus:ring-4 focus:ring-purple-300",
           "dark:focus:ring-purple-800",
         ],
-        default: [],
+        default: [""],
       },
       size: {
         icon: ["p-1"],
@@ -115,7 +114,8 @@ export const buttonVariant = cva(
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariant> {
-  label?: string; // نص الزر
+  label?: string;
+  isLoading?: boolean;
   leftComponent?: ReactNode;
   rightComponent?: ReactNode;
 }
@@ -123,6 +123,7 @@ export interface ButtonProps
 export interface BtnIconProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon: ReactNode;
+  isLoading?: boolean;
   intent?:
     | "primary"
     | "alternative"
